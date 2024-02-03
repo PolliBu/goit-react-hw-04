@@ -1,3 +1,4 @@
+import css from './ImageModal.module.css';
 import Modal from 'react-modal';
 import { FcLike } from 'react-icons/fc';
 
@@ -24,7 +25,13 @@ export const ImageModal = ({
 }) => {
   return (
     <div>
-      <Modal isOpen={isOpen} style={customStyles} onRequestClose={onClose}>
+      <Modal
+        className={css.Modal}
+        overlayClassName={css.Overlay}
+        isOpen={isOpen}
+        style={customStyles}
+        onRequestClose={onClose}
+      >
         <img src={photoModal} alt={description} />
         <p>Author: {author}</p>
         <p>
