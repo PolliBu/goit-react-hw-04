@@ -1,7 +1,7 @@
-// export const Error = () => {
-//   return (
-//     <div>
-//       <p>Whoops, something went wrong! Please try reloading this page!</p>
-//     </div>
-//   );
-// };
+export const ErrorMessage = () => {
+  return (
+    <div>
+      <p>Whoops, something went wrong! Please try reloading this page!</p>
+    </div>
+  );
+};
