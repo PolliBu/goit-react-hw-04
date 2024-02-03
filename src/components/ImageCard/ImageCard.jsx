@@ -15,6 +15,8 @@ export const ImageCard = ({ item }) => {
         onClose={() => setModalIsOpen(false)}
         photoModal={item.urls.regular}
         description={item.alt_description}
+        author={item.user.name}
+        likes={item.likes}
       ></ImageModal>
     </div>
   );

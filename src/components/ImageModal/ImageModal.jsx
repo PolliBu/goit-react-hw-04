@@ -1,4 +1,5 @@
 import Modal from 'react-modal';
+import { FcLike } from 'react-icons/fc';
 
 const customStyles = {
   content: {
@@ -13,11 +14,22 @@ const customStyles = {
 
 Modal.setAppElement('#root');
 
-export const ImageModal = ({ photoModal, description, isOpen, onClose }) => {
+export const ImageModal = ({
+  photoModal,
+  description,
+  isOpen,
+  onClose,
+  author,
+  likes,
+}) => {
   return (
     <div>
       <Modal isOpen={isOpen} style={customStyles} onRequestClose={onClose}>
         <img src={photoModal} alt={description} />
+        <p>Author: {author}</p>
+        <p>
+          <FcLike /> {likes}
+        </p>
         <p>{description}</p>
       </Modal>
     </div>
