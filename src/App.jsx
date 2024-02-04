@@ -28,7 +28,7 @@ const App = () => {
   };
 
   useEffect(() => {
-    if (query === '') {
+    if (query === '' && page === 1) {
       return;
     }
 
