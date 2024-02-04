@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 import { fetchArticles } from './articles-api';
 import { SearchBar } from './components/SearchBar/SearchBar';
 import { ImageGallery } from './components/ImageGallery/ImageGallery';
@@ -14,10 +14,13 @@ const App = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
 
+  // const totalPages = useRef(0);
+
   const searchImages = async newQuery => {
     setQuery(`${Date.now()}/${newQuery}`);
     setPage(1);
     setArticles([]);
+    // totalPages.current = 1;
   };
 
   const handleLoadMore = () => {
@@ -36,6 +39,7 @@ const App = () => {
 
         const fetchedData = await fetchArticles(query.split('/')[1], page);
         setArticles(prevArticles => [...prevArticles, ...fetchedData]);
+        // totalPages.current = fetchedData.total_pages;
       } catch (error) {
         setError(true);
       } finally {
@@ -54,7 +58,7 @@ const App = () => {
       {articles.length > 0 && !loading && (
         <LoadMoreBtn handleLoadMore={handleLoadMore} />
       )}
-      <Toaster />
+      <Toaster position="top-right" />
     </div>
   );
 };

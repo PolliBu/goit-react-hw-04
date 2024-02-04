@@ -1,0 +1,30 @@
+header {
+  background-color: rgb(13, 70, 13);
+  padding: 10px;
+  margin: 0;
+}
+
+.form {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.input {
+  border: none;
+  height: 40px;
+  padding: 0 8px;
+  font-size: 20px;
+}
+
+.button {
+  width: 45px;
+  height: 45px;
+  padding: 8px;
+  background-color: white;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+}
