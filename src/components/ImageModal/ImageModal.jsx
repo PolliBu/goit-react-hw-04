@@ -32,12 +32,19 @@ export const ImageModal = ({
         style={customStyles}
         onRequestClose={onClose}
       >
-        <img src={photoModal} alt={description} />
-        <p>Author: {author}</p>
-        <p>
-          <FcLike /> {likes}
+        <img src={photoModal} alt={description} width="1000" height="800" />
+        <div className={css.text}>
+          <p>
+            <b>Author: </b>
+            {author}
+          </p>
+          <p>
+            <FcLike /> {likes}
+          </p>
+        </div>
+        <p className={css.description}>
+          <b>Description: </b> {description}
         </p>
-        <p>{description}</p>
       </Modal>
     </div>
   );

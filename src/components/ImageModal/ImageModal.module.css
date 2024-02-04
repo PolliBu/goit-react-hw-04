@@ -4,7 +4,7 @@
   left: 40px;
   right: 40px;
   bottom: 40px;
-  background-color: papayawhip;
+  background-color: rgb(177, 228, 218);
 }
 
 .Overlay {
@@ -13,5 +13,17 @@
   left: 0;
   right: 0;
   bottom: 0;
-  background-color: black;
+  background-color: #051705;
+}
+
+.text {
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 10px;
+  font-size: 20px;
+}
+
+.description {
+  padding: 5px 10px;
+  font-size: 20px;
 }
