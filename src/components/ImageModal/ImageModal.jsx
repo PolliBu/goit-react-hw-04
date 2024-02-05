@@ -32,7 +32,7 @@ export const ImageModal = ({
         style={customStyles}
         onRequestClose={onClose}
       >
-        <img src={photoModal} alt={description} width="1000" height="800" />
+        <img src={photoModal} alt={description} width="1080" height="720" />
         <div className={css.text}>
           <p>
             <b>Author: </b>

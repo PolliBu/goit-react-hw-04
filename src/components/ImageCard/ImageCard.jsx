@@ -12,14 +12,16 @@ export const ImageCard = ({ item }) => {
         alt={item.alt_description}
         onClick={() => setModalIsOpen(true)}
       />
-      <ImageModal
-        isOpen={modalIsOpen}
-        onClose={() => setModalIsOpen(false)}
-        photoModal={item.urls.regular}
-        description={item.alt_description}
-        author={item.user.name}
-        likes={item.likes}
-      ></ImageModal>
+      {modalIsOpen && (
+        <ImageModal
+          isOpen={modalIsOpen}
+          onClose={() => setModalIsOpen(false)}
+          photoModal={item.urls.regular}
+          description={item.alt_description}
+          author={item.user.name}
+          likes={item.likes}
+        />
+      )}
     </div>
   );
 };

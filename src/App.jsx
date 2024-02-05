@@ -13,6 +13,7 @@ export const App = () => {
   const [articles, setArticles] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(false);
+  const [totalPages, setTotalPages] = useState(0);
 
   const searchImages = async newQuery => {
     setQuery(`${Date.now()}/${newQuery}`);
@@ -34,8 +35,12 @@ export const App = () => {
         setError(false);
         setLoading(true);
 
-        const fetchedData = await fetchArticles(query.split('/')[1], page);
-        setArticles(prevArticles => [...prevArticles, ...fetchedData]);
+        const { images, totalPages } = await fetchArticles(
+          query.split('/')[1],
+          page,
+        );
+        setArticles(prevArticles => [...prevArticles, ...images]);
+        setTotalPages(totalPages);
       } catch (error) {
         setError(true);
       } finally {
@@ -51,7 +56,7 @@ export const App = () => {
       {error && <ErrorMessage />}
       {articles.length > 0 && <ImageGallery items={articles} />}
       {loading && <Loader />}
-      {articles.length > 0 && !loading && (
+      {articles.length > 0 && !loading && totalPages > page && (
         <LoadMoreBtn handleLoadMore={handleLoadMore} />
       )}
       <Toaster position="top-right" />
